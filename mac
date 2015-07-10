@@ -134,6 +134,8 @@ gem_install_or_update() {
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
+    fancy_echo "You will need Xcode CLI developer tools. You should see a pop now which starts its installation."
+    fancy_echo "Wait here…"
     curl -fsS \
       'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
 
@@ -205,7 +207,8 @@ brew_install_or_upgrade 'heroku-toolbelt'
 brew_install_or_upgrade 'docker'
 brew_install_or_upgrade 'docker-compose'
 
-brew_install_or_upgrade 'caskroom/cask/brew-cask'
+brew_tap 'caskroom/cask'
+brew_install_or_upgrade 'brew-cask'
 
 cask_install 'dropbox'
 cask_install '1password'
