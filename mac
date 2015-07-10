@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Welcome to the thoughtbot laptop script!
+# Welcome to the freistil laptop script!
 # Be prepared to turn your laptop (or desktop, no haters here)
 # into an awesome development machine.
 
@@ -102,6 +102,25 @@ brew_launchctl_restart() {
   launchctl load "$HOME/Library/LaunchAgents/$plist" >/dev/null
 }
 
+cask_install() {
+  if cask_is_installed "$1"; then
+    fancy_echo "%s is already installed. Skipping ..." "$1"
+  else
+    fancy_echo "Installing %s ..." "$1"
+    brew cask install "$@"
+  fi
+}
+
+cask_is_installed() {
+  local name="$(cask_expand_alias "$1")"
+
+  brew cask list -1 | grep -Fqx "$name"
+}
+
+cask_expand_alias() {
+  brew cask info "$1" 2> /dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
+}
+
 gem_install_or_update() {
   if gem list "$1" --installed > /dev/null; then
     fancy_echo "Updating %s ..." "$1"
@@ -133,19 +152,25 @@ brew update
 
 brew_install_or_upgrade 'zsh'
 brew_install_or_upgrade 'git'
+brew_install_or_upgrade 'autojump'
+brew_install_or_upgrade 'mobile-shell'
+brew_install_or_upgrade 'terminal-notifier'
+brew_install_or_upgrade 'multimarkdown'
+brew_install_or_upgrade 'pandoc'
+brew_install_or_upgrade 'httping'
 brew_install_or_upgrade 'postgres'
 brew_launchctl_restart 'postgresql'
-brew_install_or_upgrade 'redis'
-brew_launchctl_restart 'redis'
+#brew_install_or_upgrade 'redis'
+#brew_launchctl_restart 'redis'
 brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'vim'
 brew_install_or_upgrade 'ctags'
 brew_install_or_upgrade 'tmux'
 brew_install_or_upgrade 'reattach-to-user-namespace'
 brew_install_or_upgrade 'imagemagick'
-brew_install_or_upgrade 'qt'
+#brew_install_or_upgrade 'qt'
 brew_install_or_upgrade 'hub'
-brew_install_or_upgrade 'node'
+#brew_install_or_upgrade 'node'
 
 brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
@@ -177,6 +202,40 @@ fancy_echo "Configuring Bundler ..."
   bundle config --global jobs $((number_of_cores - 1))
 
 brew_install_or_upgrade 'heroku-toolbelt'
+brew_install_or_upgrade 'docker'
+brew_install_or_upgrade 'docker-compose'
+
+brew_install_or_upgrade 'caskroom/cask/brew-cask'
+
+cask_install 'dropbox'
+cask_install '1password'
+cask_install 'alfred'
+cask_install 'slack'
+cask_install 'stay'
+cask_install 'sqwiggle'
+cask_install 'backblaze'
+cask_install 'bartender'
+cask_install 'bittorrent-sync'
+cask_install 'chefdk'
+cask_install 'fluid'
+cask_install 'flux'
+cask_install 'github'
+cask_install 'google-chrome'
+cask_install 'hazel'
+cask_install 'iterm2'
+cask_install 'karabiner'
+cask_install 'mailplane'
+cask_install 'rescuetime'
+cask_install 'screenhero'
+cask_install 'seil'
+cask_install 'sequel-pro'
+cask_install 'skitch'
+cask_install 'skype'
+cask_install 'textexpander'
+cask_install 'transmission'
+cask_install 'transmit'
+cask_install 'virtualbox'
+cask_install 'vagrant'
 
 if ! command -v rcup >/dev/null; then
   brew_tap 'thoughtbot/formulae'
