@@ -240,6 +240,9 @@ cask_install 'transmit'
 cask_install 'virtualbox'
 cask_install 'vagrant'
 
+chef gem install knife-spork
+chef gem install slack-notifier
+
 if ! command -v rcup >/dev/null; then
   brew_tap 'thoughtbot/formulae'
   brew_install_or_upgrade 'rcm'
