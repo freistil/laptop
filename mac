@@ -235,7 +235,6 @@ cask_install 'textexpander'
 cask_install 'vagrant'
 cask_install 'virtualbox'
 
-chef gem install knife-spork
 chef gem install slack-notifier
 
 if ! command -v rcup >/dev/null; then
