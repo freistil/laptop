@@ -176,6 +176,7 @@ brew_install_or_upgrade 'hub'
 brew_install_or_upgrade 'wget'
 brew_install_or_upgrade 'gist'
 brew_install_or_upgrade 'jq'
+brew_install_or_upgrade 'ngrok'
 
 brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
