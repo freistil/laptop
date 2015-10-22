@@ -32,7 +32,7 @@ sh mac 2>&1 | tee ~/laptop.log
 
 Optionally, [install freistil/dotfiles][dotfiles].
 
-[dotfiles]: https://github.com/freistil/dotfiles#install
+[dotfiles]: https://github.com/freistil/dotfiles#installation
 
 Debugging
 ---------
