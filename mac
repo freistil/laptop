@@ -152,6 +152,9 @@ fi
 fancy_echo "Updating Homebrew formulas ..."
 brew update
 
+fancy_echo "Upgrading already installed brews …"
+brew upgrade
+
 brew_install_or_upgrade 'zsh'
 brew_install_or_upgrade 'git'
 brew_install_or_upgrade 'autojump'
