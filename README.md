@@ -30,9 +30,9 @@ less mac
 sh mac 2>&1 | tee ~/laptop.log
 ```
 
-Optionally, [install thoughtbot/dotfiles][dotfiles].
+Optionally, [install freistil/dotfiles][dotfiles].
 
-[dotfiles]: https://github.com/thoughtbot/dotfiles#install
+[dotfiles]: https://github.com/freistil/dotfiles#install
 
 Debugging
 ---------
