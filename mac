@@ -155,42 +155,39 @@ brew update
 fancy_echo "Upgrading already installed brews …"
 brew upgrade
 
-brew_install_or_upgrade 'zsh'
-brew_install_or_upgrade 'git'
 brew_install_or_upgrade 'autojump'
+brew_install_or_upgrade 'ctags'
+brew_install_or_upgrade 'fzf'
+brew_install_or_upgrade 'gist'
+brew_install_or_upgrade 'git'
+brew_install_or_upgrade 'heroku-toolbelt'
+brew_install_or_upgrade 'httping'
+brew_install_or_upgrade 'hub'
+brew_install_or_upgrade 'imagemagick'
+brew_install_or_upgrade 'jq'
+brew_install_or_upgrade 'libyaml'
 brew_install_or_upgrade 'mobile-shell'
-brew_install_or_upgrade 'terminal-notifier'
 brew_install_or_upgrade 'multimarkdown'
 brew_install_or_upgrade 'pandoc'
-brew_install_or_upgrade 'httping'
 brew_install_or_upgrade 'postgres'
 brew_launchctl_restart 'postgresql'
-#brew_install_or_upgrade 'redis'
-#brew_launchctl_restart 'redis'
-brew_install_or_upgrade 'the_silver_searcher'
-brew_install_or_upgrade 'vim'
-brew_install_or_upgrade 'ctags'
-brew_install_or_upgrade 'tmux'
-brew_install_or_upgrade 'wemux'
-brew_install_or_upgrade 'reattach-to-user-namespace'
-brew_install_or_upgrade 'imagemagick'
-#brew_install_or_upgrade 'qt'
-brew_install_or_upgrade 'hub'
-#brew_install_or_upgrade 'node'
-brew_install_or_upgrade 'wget'
-brew_install_or_upgrade 'gist'
-brew_install_or_upgrade 'jq'
-
 brew_install_or_upgrade 'rbenv'
-brew_install_or_upgrade 'ruby-build'
 brew_install_or_upgrade 'rbenv-gem-rehash'
+brew_install_or_upgrade 'reattach-to-user-namespace'
+brew_install_or_upgrade 'ruby-build'
+brew_install_or_upgrade 'terminal-notifier'
+brew_install_or_upgrade 'the_silver_searcher'
+brew_install_or_upgrade 'tmux'
+brew_install_or_upgrade 'vim'
+brew_install_or_upgrade 'wemux'
+brew_install_or_upgrade 'wget'
+brew_install_or_upgrade 'zsh'
 
 # shellcheck disable=SC2016
 append_to_zshrc 'eval "$(rbenv init - --no-rehash zsh)"' 1
 
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
-brew_install_or_upgrade 'libyaml'
 
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
 
@@ -211,11 +208,8 @@ fancy_echo "Configuring Bundler ..."
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
-brew_install_or_upgrade 'heroku-toolbelt'
-
 brew_tap 'caskroom/cask'
 brew_install_or_upgrade 'brew-cask'
-
 cask_install '1password'
 cask_install 'backblaze'
 cask_install 'bartender'
