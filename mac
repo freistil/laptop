@@ -226,6 +226,7 @@ cask_install 'vagrant'
 cask_install 'virtualbox'
 
 sudo chef gem install slack-notifier
+sudo chef gem install kitchen-sync
 
 if ! command -v rcup >/dev/null; then
   brew_tap 'thoughtbot/formulae'
