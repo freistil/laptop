@@ -169,10 +169,7 @@ brew_install_or_upgrade 'libyaml'
 brew_install_or_upgrade 'mobile-shell'
 brew_install_or_upgrade 'multimarkdown'
 brew_install_or_upgrade 'pandoc'
-brew_install_or_upgrade 'postgres'
-brew_launchctl_restart 'postgresql'
 brew_install_or_upgrade 'rbenv'
-brew_install_or_upgrade 'rbenv-gem-rehash'
 brew_install_or_upgrade 'reattach-to-user-namespace'
 brew_install_or_upgrade 'ruby-build'
 brew_install_or_upgrade 'terminal-notifier'
@@ -189,7 +186,7 @@ brew_install_or_upgrade 'sudolikeaboss'
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
 
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+ruby_version="2.3.1"
 
 eval "$(rbenv init - zsh)"
 
@@ -212,11 +209,8 @@ gem_install_or_update 'hetzner-bootstrap'
 gem_install_or_update 'hetzner-api'
 
 brew_tap 'caskroom/cask'
-brew_install_or_upgrade 'brew-cask'
 cask_install '1password'
 cask_install 'backblaze'
-cask_install 'chefdk'
-cask_install 'dockertoolbox'
 cask_install 'flux'
 cask_install 'github'
 cask_install 'iterm2'
@@ -225,8 +219,9 @@ cask_install 'screenhero'
 cask_install 'vagrant'
 cask_install 'virtualbox'
 
-sudo chef gem install slack-notifier
-sudo chef gem install kitchen-sync
+cask_install 'chefdk'
+chef gem install slack-notifier
+chef gem install kitchen-sync
 
 if ! command -v rcup >/dev/null; then
   brew_tap 'thoughtbot/formulae'
