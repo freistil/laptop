@@ -209,13 +209,6 @@ gem_install_or_update 'hetzner-bootstrap'
 gem_install_or_update 'hetzner-api'
 
 brew_tap 'caskroom/cask'
-cask_install '1password'
-cask_install 'backblaze'
-cask_install 'flux'
-cask_install 'github'
-cask_install 'iterm2'
-cask_install 'rescuetime'
-cask_install 'screenhero'
 cask_install 'vagrant'
 cask_install 'virtualbox'
 
