@@ -210,6 +210,7 @@ brew_tap 'caskroom/cask'
 cask_install 'vagrant'
 cask_install 'virtualbox'
 
+brew_tap 'chef/chef'
 cask_install 'chefdk'
 chef gem install slack-notifier
 chef gem install kitchen-sync
